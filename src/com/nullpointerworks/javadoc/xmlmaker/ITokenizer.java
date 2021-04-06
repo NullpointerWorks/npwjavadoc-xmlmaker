@@ -1,6 +1,6 @@
 package com.nullpointerworks.javadoc.xmlmaker;
 
-public interface ISourceParser 
+public interface ITokenizer 
 {
 	/**
 	 * 

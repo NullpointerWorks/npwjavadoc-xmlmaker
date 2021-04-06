@@ -2,6 +2,7 @@ package com.nullpointerworks.javadoc.xmlmaker;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.nullpointerworks.util.FileUtil;
@@ -19,15 +20,15 @@ public class MainXMLMaker
 	public MainXMLMaker(String[] args)
 	{
 		
-		
+		parseFile("src/com/nullpointerworks/javadoc/examples/ExampleClass.java");
 		
 		
 	}
 	
 	public void parseFile(String f) 
 	{
-		String n = FileUtil.getFileNameFromPath(f);
-		ISourceParser parser = new PrimarySourceParser(n);
+		List<SourceSegment> tokens = new ArrayList<SourceSegment>();
+		ITokenizer parser = new SourceTokenizer(tokens);
 		
 		TextFile tf = null;
 		try
@@ -48,6 +49,16 @@ public class MainXMLMaker
 			String line = lines[i];
 			parser.nextLine(line);
 		}
+		
+		String n = FileUtil.getFileNameFromPath(f);
+		for (SourceSegment token : tokens)
+		{
+			System.out.println( token.getString() );
+		}
+		
+		
+		
+		
 		
 		
 		

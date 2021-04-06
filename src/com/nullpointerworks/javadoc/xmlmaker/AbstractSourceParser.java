@@ -1,6 +1,6 @@
 package com.nullpointerworks.javadoc.xmlmaker;
 
-public abstract class AbstractSourceParser implements ISourceParser 
+public abstract class AbstractSourceParser implements ITokenizer 
 {
 	private StringBuilder tokenBuilder;
 	
@@ -80,7 +80,6 @@ public abstract class AbstractSourceParser implements ISourceParser
 		 * other
 		 */
 		line = line.replace("//", " // ");
-		//line = line.replace("*", " * ");
 		line = line.replace("=", " = ");
 		line = line.replace(",", " , ");
 		line = line.replace(";", " ; ");
@@ -117,7 +116,7 @@ public abstract class AbstractSourceParser implements ISourceParser
 		if (newLine || whiteSpace)
 		{
 			String token = tokenBuilder.toString();
-			nextToken(token);
+			if (token.length() > 0) nextToken(token);
 			tokenBuilder.setLength(0);// reset builder
 			return;
 		}
