@@ -6,7 +6,7 @@ import com.nullpointerworks.javadoc.xmlmaker.AbstractSourceParser;
 	Hello world! 3*6=18.
 	@author Michiel
 */
-public abstract class ExampleClass<T> extends AbstractSourceParser
+public class ExampleClass<T> extends AbstractSourceParser
 {
 	
 	public static final int myInteger = 0;
@@ -14,9 +14,11 @@ public abstract class ExampleClass<T> extends AbstractSourceParser
 	ExampleClass()
 	{
 		
+		new ExampleClass<Integer>("");
+		
 	}
 	
-	public ExampleClass(int i)
+	public <K> ExampleClass(K t)
 	{
 		
 	}
@@ -25,7 +27,7 @@ public abstract class ExampleClass<T> extends AbstractSourceParser
 		@param s - Some input string
 		@version 1.0.0
 	*/
-	private ExampleClass(String s)
+	private ExampleClass(String s, int i)
 	{
 		
 	}
@@ -35,10 +37,18 @@ public abstract class ExampleClass<T> extends AbstractSourceParser
 		return "Example";
 	}
 	
+	public T getTemplated() 
+	{
+		return null;
+	}
+	
 	public final <G> G getType(G t)
 	{
 		return t;
 	}
+
+	@Override
+	public void nextToken(String token) {}
 	
 	
 	

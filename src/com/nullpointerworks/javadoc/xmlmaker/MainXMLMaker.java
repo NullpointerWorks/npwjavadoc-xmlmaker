@@ -9,6 +9,39 @@ import com.nullpointerworks.util.FileUtil;
 import com.nullpointerworks.util.file.textfile.TextFile;
 import com.nullpointerworks.util.file.textfile.TextFileParser;
 
+/**
+
+[annotations] [visibility] [modifiers] [templates] [type] [name] [templates] [parameters] [extends] [implements] [value] 
+[] []  []  []  []  []  []  []  []  []  []
+
+
+
+
+
+public abstract class ExampleClass<T> extends AbstractSourceParser
+[] [public]  [abstract]  []  [class]  [ExampleClass]  [T]  []  [AbstractSourceParser]  []  []
+
+
+public static final int myInteger = 0;
+[] [public] [static, final]  []  [int] [myInteger]  []  []  []  [0]
+
+
+ExampleClass()
+[] []  []  []  []  [ExampleClass]  []  []  []  []
+
+
+public ExampleClass(int i)
+[] [public]  []  []  []  [ExampleClass]  [int i]  []  []  []
+
+
+public final <G> G getType(G t)
+[] [public]  [final]  [G]  [G]  [getType]  []  [G t]  []  []  []
+
+
+
+
+
+*/
 public class MainXMLMaker 
 {
 	
