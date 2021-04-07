@@ -1,13 +1,13 @@
-package com.nullpointerworks.javadoc.xmlmaker;
+package com.nullpointerworks.javadoc.xmlmaker.tokenizer;
 
-public abstract class AbstractSourceParser implements ITokenizer 
+public abstract class AbstractTokenizer implements ITokenizer 
 {
 	private StringBuilder tokenBuilder;
 	
 	/**
 	 * 
 	 */
-	public AbstractSourceParser()
+	public AbstractTokenizer()
 	{
 		tokenBuilder = new StringBuilder();
 	}

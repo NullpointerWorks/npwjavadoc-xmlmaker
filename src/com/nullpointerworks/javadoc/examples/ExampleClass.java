@@ -1,12 +1,12 @@
 package com.nullpointerworks.javadoc.examples;
 
-import com.nullpointerworks.javadoc.xmlmaker.AbstractSourceParser;
+import com.nullpointerworks.javadoc.xmlmaker.tokenizer.AbstractTokenizer;
 
 /**
 	Hello world! 3*6=18.
 	@author Michiel
 */
-public class ExampleClass<T> extends AbstractSourceParser
+public class ExampleClass<T> extends AbstractTokenizer
 {
 	
 	public static final int myInteger = 0;
@@ -36,7 +36,7 @@ public class ExampleClass<T> extends AbstractSourceParser
 	{
 		return "Example";
 	}
-	
+
 	public T getTemplated() 
 	{
 		return null;
@@ -48,7 +48,11 @@ public class ExampleClass<T> extends AbstractSourceParser
 	}
 
 	@Override
-	public void nextToken(String token) {}
+	@SuppressWarnings("unused")
+	public void nextToken(String token) 
+	{
+		String s;
+	}
 	
 	
 	

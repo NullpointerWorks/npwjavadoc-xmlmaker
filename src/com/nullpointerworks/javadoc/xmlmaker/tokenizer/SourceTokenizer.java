@@ -1,8 +1,10 @@
-package com.nullpointerworks.javadoc.xmlmaker;
+package com.nullpointerworks.javadoc.xmlmaker.tokenizer;
 
 import java.util.List;
 
-public class SourceTokenizer extends AbstractSourceParser
+import com.nullpointerworks.javadoc.xmlmaker.SourceSegment;
+
+public class SourceTokenizer extends AbstractTokenizer
 {
 	private List<SourceSegment> tokens;
 	private SourceSegment current;
@@ -25,6 +27,13 @@ public class SourceTokenizer extends AbstractSourceParser
 		if (token.equals("}")) 
 		{
 			skip--;
+			
+			if (skip==0)
+			{
+				if (current!=null) tokens.add(current);
+				current = null;
+			}
+			
 			return;
 		}
 		

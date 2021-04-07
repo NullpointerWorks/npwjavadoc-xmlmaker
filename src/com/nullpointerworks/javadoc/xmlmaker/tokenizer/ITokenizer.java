@@ -1,4 +1,4 @@
-package com.nullpointerworks.javadoc.xmlmaker;
+package com.nullpointerworks.javadoc.xmlmaker.tokenizer;
 
 public interface ITokenizer 
 {

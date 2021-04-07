@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nullpointerworks.util.FileUtil;
+import com.nullpointerworks.javadoc.xmlmaker.tokenizer.ITokenizer;
+import com.nullpointerworks.javadoc.xmlmaker.tokenizer.SourceTokenizer;
+
 import com.nullpointerworks.util.file.textfile.TextFile;
 import com.nullpointerworks.util.file.textfile.TextFileParser;
 
@@ -13,9 +15,6 @@ import com.nullpointerworks.util.file.textfile.TextFileParser;
 
 [annotations] [visibility] [modifiers] [templates] [type] [name] [templates] [parameters] [extends] [implements] [value] 
 [] []  []  []  []  []  []  []  []  []  []
-
-
-
 
 
 public abstract class ExampleClass<T> extends AbstractSourceParser
@@ -53,12 +52,21 @@ public class MainXMLMaker
 	public MainXMLMaker(String[] args)
 	{
 		
-		parseFile("src/com/nullpointerworks/javadoc/examples/ExampleClass.java");
+		List<SourceSegment> tokens = tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleClass.java");
+		//tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum1.java");
+		//tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum2.java");
 		
+		
+		
+		
+		for (SourceSegment token : tokens)
+		{
+			System.out.println( token.getString() );
+		}
 		
 	}
 	
-	public void parseFile(String f) 
+	public List<SourceSegment> tokenizeFile(String f) 
 	{
 		List<SourceSegment> tokens = new ArrayList<SourceSegment>();
 		ITokenizer parser = new SourceTokenizer(tokens);
@@ -71,10 +79,10 @@ public class MainXMLMaker
 		catch (FileNotFoundException e) 
 		{
 			e.printStackTrace();
-			return;
+			return tokens;
 		}
 		
-		if (tf==null) return;
+		if (tf==null) return tokens;
 		String[] lines = tf.getLines();
 		
 		for (int i=0,l=lines.length; i<l; i++)
@@ -83,32 +91,18 @@ public class MainXMLMaker
 			parser.nextLine(line);
 		}
 		
-		String n = FileUtil.getFileNameFromPath(f);
-		for (SourceSegment token : tokens)
-		{
-			System.out.println( token.getString() );
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		return tokens;
 	}
 	
-	public void parseFiles(List<String> files) 
+	public void tokenizeFiles(List<String> files) 
 	{
 		for (String f : files)
 		{
-			parseFile(f);
+			tokenizeFile(f);
 		}
 	}
 
-	public void parseDirectory(File dir, List<String> list, boolean traverseSub) 
+	public void scanDirectory(File dir, List<String> list, boolean traverseSub) 
 	{
 		File[] files = dir.listFiles();
 		for (int i=0,l=files.length; i<l; i++)
@@ -116,7 +110,7 @@ public class MainXMLMaker
 			File file = files[i];
 			if (traverseSub && file.isDirectory()) 
 			{
-				parseDirectory(file, list, traverseSub);
+				scanDirectory(file, list, traverseSub);
 			}
 			else
 			{
