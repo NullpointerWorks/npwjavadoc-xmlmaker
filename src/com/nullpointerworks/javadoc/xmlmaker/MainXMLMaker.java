@@ -13,28 +13,28 @@ import com.nullpointerworks.util.file.textfile.TextFileParser;
 
 /**
 
-[annotations] [visibility] [modifiers] [templates] [type] [name] [templates] [parameters] [extends] [implements] [value] 
-[] []  []  []  []  []  []  []  []  []  []
+[visibility] [modifiers] [templates] [type] [name] [templates] [parameters] [extends] [implements] [value] 
+[]  []  []  []  []  []  []  []  []  []
 
 
 public abstract class ExampleClass<T> extends AbstractSourceParser
-[] [public]  [abstract]  []  [class]  [ExampleClass]  [T]  []  [AbstractSourceParser]  []  []
+[public]  [abstract]  []  [class]  [ExampleClass]  [T]  []  [AbstractSourceParser]  []  []
 
 
 public static final int myInteger = 0;
-[] [public] [static, final]  []  [int] [myInteger]  []  []  []  [0]
+[public] [static, final]  []  [int] [myInteger]  []  []  []  [0]
 
 
 ExampleClass()
-[] []  []  []  []  [ExampleClass]  []  []  []  []
+[]  []  []  []  [ExampleClass]  []  []  []  []
 
 
 public ExampleClass(int i)
-[] [public]  []  []  []  [ExampleClass]  [int i]  []  []  []
+[public]  []  []  []  [ExampleClass]  [int i]  []  []  []
 
 
 public final <G> G getType(G t)
-[] [public]  [final]  [G]  [G]  [getType]  []  [G t]  []  []  []
+[public]  [final]  [G]  [G]  [getType]  []  [G t]  []  []  []
 
 
 
@@ -53,8 +53,10 @@ public class MainXMLMaker
 	{
 		
 		List<SourceSegment> tokens = tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleClass.java");
-		//tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum1.java");
-		//tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum2.java");
+		
+		//List<SourceSegment> tokens = tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum1.java");
+		
+		//List<SourceSegment> tokens = tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum2.java");
 		
 		
 		
