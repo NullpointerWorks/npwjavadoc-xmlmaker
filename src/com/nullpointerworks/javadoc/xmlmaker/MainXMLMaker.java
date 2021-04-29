@@ -11,6 +11,9 @@ import com.nullpointerworks.javadoc.xmlmaker.tokenizer.SourceTokenizer;
 import com.nullpointerworks.util.file.textfile.TextFile;
 import com.nullpointerworks.util.file.textfile.TextFileParser;
 
+import exp.nullpointerworks.xml.Document;
+import exp.nullpointerworks.xml.Element;
+
 /**
 
 [visibility] [modifiers] [templates] [type] [name] [templates] [parameters] [extends] [implements] [value] 
@@ -53,18 +56,27 @@ public class MainXMLMaker
 	{
 		
 		List<SourceSegment> tokens = tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleClass.java");
-		
 		//List<SourceSegment> tokens = tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum1.java");
-		
 		//List<SourceSegment> tokens = tokenizeFile("src/com/nullpointerworks/javadoc/examples/ExampleEnum2.java");
-		
-		
-		
 		
 		for (SourceSegment token : tokens)
 		{
 			System.out.println( token.getString() );
 		}
+		
+		
+		
+		Document doc = new Document();
+		doc.setRootElement( new Element("source") );
+		Element root = doc.getRootElement();
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	
