@@ -80,7 +80,23 @@ public class MainXMLMaker
 		
 	}
 	
-	public List<SourceSegment> tokenizeFile(String f) 
+	private void makeInformation(Element root)
+	{
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	// =========================================================
+	
+	private List<SourceSegment> tokenizeFile(String f) 
 	{
 		List<SourceSegment> tokens = new ArrayList<SourceSegment>();
 		ITokenizer parser = new SourceTokenizer(tokens);
@@ -108,7 +124,7 @@ public class MainXMLMaker
 		return tokens;
 	}
 	
-	public void tokenizeFiles(List<String> files) 
+	private void tokenizeFiles(List<String> files) 
 	{
 		for (String f : files)
 		{
@@ -116,7 +132,7 @@ public class MainXMLMaker
 		}
 	}
 
-	public void scanDirectory(File dir, List<String> list, boolean traverseSub) 
+	private void scanDirectory(File dir, List<String> list, boolean traverseSub) 
 	{
 		File[] files = dir.listFiles();
 		for (int i=0,l=files.length; i<l; i++)
