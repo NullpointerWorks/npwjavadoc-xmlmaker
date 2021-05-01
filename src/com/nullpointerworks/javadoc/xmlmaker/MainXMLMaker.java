@@ -70,8 +70,7 @@ public class MainXMLMaker
 		doc.setRootElement( new Element("source") );
 		Element root = doc.getRootElement();
 		
-		
-		
+		makeInformation(root);
 		
 		
 		
@@ -82,17 +81,37 @@ public class MainXMLMaker
 	
 	private void makeInformation(Element root)
 	{
+		Element info = new Element("info");
+
+		Element type = new Element("type");
+		Element name = new Element("name");
+		Element mod = new Element("module");
+		Element pack = new Element("package");
 		
 		
-		
-		
+		makeInformationBlock(info);
+		info.addChild(type);
+		info.addChild(name);
+		info.addChild(mod);
+		info.addChild(pack);
+		root.addChild(info);
 	}
 	
-	
-	
-	
-	
-	
+	private void makeInformationBlock(Element root)
+	{
+		Element info = new Element("info");
+		Element author = new Element("author");
+		Element version = new Element("version");
+		Element since = new Element("since");
+		Element see = new Element("see");
+		Element comment = new Element("comment");
+		info.addChild(author);
+		info.addChild(version);
+		info.addChild(since);
+		info.addChild(see);
+		info.addChild(comment);
+		root.addChild(info);
+	}
 	
 	// =========================================================
 	
